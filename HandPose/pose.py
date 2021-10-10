@@ -38,14 +38,17 @@ with mp_pose.Pose(
 
         if results.pose_landmarks:
             # LEFT:
-            x1 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x * width)
-            y1 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y * height)
+            Lx1 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].x * width)
+            Ly1 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y * height)
             z1 = float(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].z)
 
-            x2 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW].x * width)
-            y2 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW].y * height)
-            x3 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].x * width)
-            y3 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].y * height)
+            Lx2 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW].x * width)
+            Ly2 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW].y * height)
+            z2 = float(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW].z)
+
+            Lx3 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].x * width)
+            Ly3 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].y * height)
+            z3 = float(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].z)
 
             cv2.line(image, (x1,y1), (x2,y2), (0,255,0), 3)
             cv2.line(image, (x2,y2), (x3,y3), (0,255,0), 3)
@@ -68,11 +71,12 @@ with mp_pose.Pose(
             cv2.circle(image, (x2,y2), 6, (0,0,255), -1)
             cv2.circle(image, (x3,y3), 6, (0,0,255), -1)
 
-            print(z1)
+            #print(z1, z2, z3)
 
         cv2.imshow("imagen", image)
         if cv2.waitKey(5) & 0xFF == 27: # If pulse ESC.
             break
+
 
 
 cap.release()
