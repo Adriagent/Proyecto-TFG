@@ -8,8 +8,6 @@ El objetivo del TFG es desarrollar una interfad de control hombre máquina de ba
 ## De momento los objetivos son:
 
 - Seguir testeando con MediaPipe.
-- Ver si utilizar la Z que proporciona es factible para la profundidad.
+- Ver si utilizar la Z que proporciona es factible para la profundidad. (Parece que si pero no es suficiente)
 - Probar a obtener las coordenaadas articulares y pasárselo a una simulación de un brazo robot.
 - Desarrollar una simulación mediante PeterCorke en python3.
-- Probar a hacer una simulación más detallada en Swift.
-- Investigar cómo comunicarme entre 2 códigos de python para enviar las coordenadas obtenidas en pose al robot.
