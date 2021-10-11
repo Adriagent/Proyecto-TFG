@@ -3,14 +3,12 @@ from roboticstoolbox.backends.Swift import Swift
 from spatialmath import SE3
 from math import pi
 
-robot = rtb.models.UR5()
-
+robot = rtb.roboticstoolbox.models.UR5()
 
 
 # Obtenemos la matriz de transformacion:
 T = SE3(0,0,0.5)*SE3.RPY((0,0,0))
 robot.base = T
-
 
 print(robot)
 
