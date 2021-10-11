@@ -1,7 +1,8 @@
 import mediapipe as mp
 import cv2
 
-mp_pose = mp.solutions.pose # Es el conjunto de las herramientas de mediapipe.
+#mp_pose = mp.solutions.pose # Es el conjunto de las herramientas de mediapipe.
+mp_pose = mp.solutions.mediapipe.python.solutions.pose
 
 
 # For webcam input:
@@ -22,7 +23,7 @@ with mp_pose.Pose(
             print("Ignoring empty camera frame.")
 			# If loading a video, use 'break' instead of 'continue'.
             continue
-
+        
 		# Flip the image horizontally for a later selfie-view display, and convert the BGR image to RGB.
         image = cv2.cvtColor(cv2.flip(image, 1), cv2.COLOR_BGR2RGB)
         height, width, _ = image.shape
@@ -50,11 +51,11 @@ with mp_pose.Pose(
             Ly3 = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].y * height)
             z3 = float(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST].z)
 
-            cv2.line(image, (x1,y1), (x2,y2), (0,255,0), 3)
-            cv2.line(image, (x2,y2), (x3,y3), (0,255,0), 3)
-            cv2.circle(image, (x1,y1), 6, (0,0,255), -1)
-            cv2.circle(image, (x2,y2), 6, (0,0,255), -1)
-            cv2.circle(image, (x3,y3), 6, (0,0,255), -1)
+            cv2.line(image, (Lx1,Ly1), (Lx2,Ly2), (0,255,0), 3)
+            cv2.line(image, (Lx2,Ly2), (Lx3,Ly3), (0,255,0), 3)
+            cv2.circle(image, (Lx1,Ly1), 6, (0,0,255), -1)
+            cv2.circle(image, (Lx2,Ly2), 6, (0,0,255), -1)
+            cv2.circle(image, (Lx3,Ly3), 6, (0,0,255), -1)
 
 
             # RIGHT:
