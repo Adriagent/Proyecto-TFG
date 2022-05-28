@@ -1,3 +1,4 @@
+from re import L
 import mediapipe as mp
 import cv2
 import numpy as np
@@ -23,15 +24,15 @@ def mediapipe_detection(P1, P2, devices):
     cap0 = cv2.VideoCapture(devices[0])
     cap1 = cv2.VideoCapture(devices[1])
 
-    client = client_tcp('localhost', 12345)
+    client = client_tcp('localhost', 50002)
     last = time()
     previous_frame_time = time()
+    ready = False
+    n = 0
 
     while cap0.isOpened() and cap1.isOpened():
         ret0, image0 = cap0.read()
         ret1, image1 = cap1.read()
-
-        start = time()
 
         if not ret0 or not ret1: break
 
@@ -83,23 +84,34 @@ def mediapipe_detection(P1, P2, devices):
 
 
         # Enviamos los puntos a la simulación.
-        if client.is_open() and time() - last > 0.05:
+        if client.is_open() and time() - last > 0.1:
 
+            if not ready:
+                client.sock.recv(1024).decode()
+                ready = True
 
-            L_wrist = points_3D["L_wrist"] - points_3D["L_shoulder"] # Ponemos como origen el hombro izquierdo.
-            R_wrist = points_3D["R_wrist"] - points_3D["R_shoulder"] # Ponemos como origen el hombro derecho.
+            if ready and n < 10:
+                n+=1
+                print(n)
+                
+            else:
+                L_wrist = points_3D["L_wrist"] - points_3D["L_shoulder"] # Ponemos como origen el hombro izquierdo.
+                R_wrist = points_3D["R_wrist"] - points_3D["R_shoulder"] # Ponemos como origen el hombro derecho.
 
-            L_wrist = np.array([-L_wrist[0]/200, L_wrist[2]/200, -L_wrist[1]/200], dtype=float).clip(0,0.1)
-            R_wrist = np.array([-R_wrist[0]/15, R_wrist[2]/15, -R_wrist[1]/15], dtype=float).clip(0,0.1)
+                L_wrist = np.array([(-L_wrist[0]/80), -L_wrist[2]/100, -L_wrist[1]/100], dtype=float)# x, y, z
+                R_wrist = np.array([-R_wrist[0]/15, R_wrist[2]/15, -R_wrist[1]/15], dtype=float).clip(0,0.05)
 
+                L_wrist[0] = np.clip(L_wrist[0],-0.15, 0.2)     # x
+                L_wrist[1] = np.clip(L_wrist[1],-0.15, 0.05)    # y 
+                L_wrist[2] = np.clip(L_wrist[2],-0.05, 0.15)    # z
 
-            print("muñeca izquierda (xzy) =", L_wrist)
-            # print("muñeca derecha   =", R_wrist, "\n")
+                print("muñeca izquierda (xzy) =", L_wrist)
+                # print("muñeca derecha   =", R_wrist, "\n")
 
-            msg = np.concatenate((L_wrist, R_wrist), axis=None)
-            
-            client.enviar(msg)
-            last = time()
+                msg = np.concatenate((L_wrist, R_wrist), axis=None)
+                    
+                client.enviar(msg)
+                last = time()
 
 
         DrawLines(image0, results0)
@@ -127,10 +139,15 @@ if __name__ == "__main__":
 
     devices = find_devices(3)
 
+
     if len(devices) < 3: exit("[#]: Not enough cameras detected!")
 
 
+    # devices = [0,2,4]
+
     P1, P2 = setup(devices[1:]) # Obtenemos las matrices de proyeccion.
+
+    # devices = [0, "cam1.avi", "cam2.avi"]
 
     mediapipe_detection(P1, P2, devices[1:])
 
