@@ -89,7 +89,6 @@ class Simulation(QObject):
         self.signal_data.emit()         # Emitimos señal para actualizar el panel de info.
 
 
-
         self.com = server_tcp(port=50002)
         
         # A la espera de poder conectarse con cliente del detector:

@@ -6,19 +6,18 @@ from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QGridLayout, QTextEdit, QWidget, QLabel
 from PyQt5.QtCore import QThread, QUrl, Qt, pyqtSignal
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from simuladores.simulation_base import Simulation
 
 warnings.filterwarnings("ignore", message="delta_grad == 0.0. Check if the approximated function is linear.")
 
 
 
-class Aplication(QWidget):
+class app_swift(QWidget):
 
     app = QApplication(sys.argv)
     stop_signal = pyqtSignal()
 
     def __init__(self, Simulation, robot_model, q_home=None):
-        super(Aplication, self).__init__()
+        super(app_swift, self).__init__()
 
         self.sim = Simulation(robot_model, q_home) # iniciamos la simulacion.
         web = QWebEngineView()
@@ -160,7 +159,7 @@ class Aplication(QWidget):
 
 
 if __name__ == "__main__":
-    window = Aplication()
+    window = app_swift()
 
     window.run()
 

@@ -1,4 +1,3 @@
-import sys
 import roboticstoolbox as rtb
 import numpy as np
 
@@ -32,26 +31,23 @@ if __name__ == "__main__":
     home_q = np.deg2rad([-91.71, -98.96, -126.22, -46.29, 91.39, 358.21])                   # home articulares UR3.
     
     
-    
     ###############################################################
     
 
-    robot_model = robot_UR5e
+    robot_model = robot_UR3 
 
+    print(robot_model)
 
-    if isinstance(robot_model, rtb.DHRobot):
-        from interfaces.app_pyplot import Aplication
-    elif isinstance(robot_model, rtb.ERobot):
-        if robot_model.hasgeometry:
-            from interfaces.app_swift import Aplication
-        else:
-            from interfaces.app_pyplot import Aplication
+    if isinstance(robot_model, rtb.ERobot) and robot_model.hasgeometry:
+        from interfaces.app_swift import app_swift as app
+    else:
+        from interfaces.app_pyplot import app_pyplot as app
 
 
     print("[#] Elija el modo de la interfaz hombre-máquina.")
-    print("\t-> 1. Modo Base, solo muestra la simulación de la interfaz.")
-    print("\t-> 2. Modo Gazebo, controla una simulación en Gazebo del robot.")
-    print("\t-> 3. Modo Real, controla un robot real.\n")
+    print("\t-> 1. Modo Base: Muestra la simulación de la interfaz.")
+    print("\t-> 2. Modo Gazebo: Controla una simulación en Gazebo del robot.")
+    print("\t-> 3. Modo Real: Controla un robot real.\n")
 
     mode = int(input("Mode: "))
 
@@ -69,6 +65,6 @@ if __name__ == "__main__":
         from simuladores.simulation_demo import Simulation
         
 
-    window = Aplication(Simulation, robot_model, home_q)
+    window = app(Simulation, robot_model, home_q)
 
     window.run()
