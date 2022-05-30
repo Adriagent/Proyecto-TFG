@@ -1,0 +1,14 @@
+matplotlib==3.5.2
+mediapipe==0.8.10
+numpy==1.22.4
+phys==0.1.0
+PyQt5==5.15.6
+roboticstoolbox_python==0.11.0
+rosgraph==1.15.14
+rospy==1.15.14
+sensor_msgs==1.13.1
+spatialgeometry==1.0.1
+spatialmath_python==1.0.0
+swift==2.29.1
+swift_sim==1.0.0
+websockets==10.3
