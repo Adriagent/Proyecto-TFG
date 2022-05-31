@@ -143,7 +143,7 @@ class Simulation(QObject):
         T = SE3(x,y,z)*SE3.RPY((Rx,Ry,Rz)) # Obtenemos la matriz de transformacion:
         
         start = time.time()
-        sol = self.robot.ikine_min(T, q0=np.array(self.robot.q), ilimit=200)
+        sol = self.robot.ikine_min(T, q0=np.array(self.home_q), ilimit=200)
         elapsed_time = time.time() - start
         print("[#]: Tiempo para calcular la cinematica inversa:", "{:.3}".format(elapsed_time), "s")
 

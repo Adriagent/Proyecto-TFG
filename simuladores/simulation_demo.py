@@ -103,16 +103,17 @@ class Simulation(QObject):
 
         print("[#] Moviendo robot a posición inicial:")
         msg = str(self.home_q)
+        time.sleep(0.5)
         self.com.demo.send(msg.encode())
         msg = self.com.demo.recv(1024).decode() # recibimos confirmación del robot real.
+        print("robot real:", msg)
+
 
         print("\nempezando movimiento\n")
 
         self.com.enviar(self.com.detector, "empezar")
-
-
         print("[#]: Running...")
-        while self._RUN_ and self.com.connected == 1:
+        while self._RUN_ and self.com.connected == 2:
             
             # Recibimos datos de control.
             data = self.com.recibir(self.com.detector)
@@ -126,9 +127,10 @@ class Simulation(QObject):
                 # Actualizamos posición del robot real y obtenemos su posición real.
                 self.com.enviar(self.com.demo, self.desired_q)
                 msg = self.com.demo.recv(1024).decode()
-                temp = np.array(data).astype(float)
+                temp = msg.strip("[]").split(",")
+                real_q = np.array(temp).astype(float)
 
-                self.robot.q = temp
+                self.robot.q = real_q
 
                 self.get_pos()
                 self.signal_data.emit() # Emitimos señal para actualizar el panel de info.
@@ -152,7 +154,7 @@ class Simulation(QObject):
         T = SE3(x,y,z)*SE3.RPY((Rx,Ry,Rz)) # Obtenemos la matriz de transformacion:
         
         start = time.time()
-        sol = self.robot.ikine_min(T, q0=np.array(self.robot.q), ilimit=200)
+        sol = self.robot.ikine_min(T, q0=np.array(self.home_q), ilimit=200)
         elapsed_time = time.time() - start
         print("[#]: Tiempo para calcular la cinematica inversa:", "{:.3}".format(elapsed_time), "s")
 

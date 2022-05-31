@@ -92,17 +92,17 @@ def mediapipe_detection(P1, P2, devices):
 
 
         # Enviamos los puntos a la simulación.
-        if client.is_open() and time() - last > 0.1:
+        if client.is_open() and time() - last > 0.15:
 
             L_wrist = points_3D["L_wrist"] - points_3D["L_shoulder"] # Ponemos como origen el hombro izquierdo.
             R_wrist = points_3D["R_wrist"] - points_3D["R_shoulder"] # Ponemos como origen el hombro derecho.
 
-            L_wrist = np.array([(-L_wrist[0]/80), -L_wrist[2]/100, -L_wrist[1]/100], dtype=float)# x, y, z
-            R_wrist = np.array([-R_wrist[0]/15, R_wrist[2]/15, -R_wrist[1]/15], dtype=float).clip(0,0.05)
+            L_wrist = np.array([(L_wrist[0]/50), -L_wrist[2]/50, -L_wrist[1]/50], dtype=float)# x, y, z
+            R_wrist = np.array([-R_wrist[0]/15, R_wrist[2]/15, -R_wrist[1]/15], dtype=float)
 
-            L_wrist[0] = np.clip(L_wrist[0],-0.15, 0.2)     # x
-            L_wrist[1] = np.clip(L_wrist[1],-0.15, 0.05)    # y 
-            L_wrist[2] = np.clip(L_wrist[2],-0.05, 0.15)    # z
+            L_wrist[0] = np.clip(L_wrist[0],-0.2, 0.3)     # x
+            L_wrist[1] = np.clip(L_wrist[1],-0.2, -0.05)    # y 
+            L_wrist[2] = np.clip(L_wrist[2],-0.05, 0.2)    # z
 
             print("muñeca izquierda (xzy) =", L_wrist)
             # print("muñeca derecha   =", R_wrist, "\n")
@@ -123,7 +123,7 @@ def mediapipe_detection(P1, P2, devices):
             cv2.imshow("cam1", image1)
             
             if not ready:
-                check = select.select([client.sock], [], [], 0.01)
+                check = select.select([client.sock], [], [], 0.1)
                 if check[0]:
                     client.sock.recv(1024).decode()
                     ready = True
@@ -131,7 +131,10 @@ def mediapipe_detection(P1, P2, devices):
                     n+=1
             else:
                 msg = np.concatenate((L_wrist, R_wrist), axis=None)
-                client.enviar(msg)
+                try:
+                    client.enviar(msg)
+                except BrokenPipeError:
+                    break
             
             last = time()
 
