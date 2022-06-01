@@ -52,8 +52,7 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 
 Haz click en el gif para ir al vídeo de demostración con un robot real.
 
-[<img alt="holi" src="doc/clip.gif">](https://www.universal-robots.com/)
-[<img height="60" alt="FZI Research Center for Information Technology" src="ur_robot_driver/doc/resources/fzi-logo_transparenz.png">](https://www.fzi.de)
+[<img alt="holi" src="doc/clip.gif">](https://www.universal-robots.com/) &nbsp; and &nbsp;
 
 hola mundooo
 
