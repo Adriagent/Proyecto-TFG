@@ -50,7 +50,7 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 
 ## Vídeo: <a name="p4"/>
 
-Haz click en el gif para ir al vídeo de demostración con un robot real.
+Demostración probando la interfaz con un robot UR3: [vídeo](https://www.youtube.com/watch?v=e_8cTOLwNLA)
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=e_8cTOLwNLA">
