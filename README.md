@@ -14,7 +14,6 @@
 ## Introducción: <a name="p1"/>
 
 Este es el proyecto de mi trabajo de fin de grado en la carrera de Ingeniería Robótica, en la Universidad de Alicante. El proyecto se ha desarrollado en `Ubuntu 20.4` y completamente en `Python 3`. La interfaz permite controlar una simulación en el entorno `Gazebo` de un robot UR y también controlar un robot real.
-deEn este proyecto se ha desarrollado una intefaz hombre-máquina para teleoperar brazos robots a partir de gestos.
 
 ## Instalación: <a name="p2"/>
 
