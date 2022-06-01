@@ -62,8 +62,8 @@ La calibración de las cámaras se lleva a cabo ejecutando el código `camera_ca
 ### Interfaz modo Base: <a name="p4"/>
 
 <p align="center">
-  <img height=300 src="doc/Interfaz_PyPlot.png"/>
-  <img height=300 src="doc/interfaz_Swift.png"/>
+  <img height=100 src="doc/Interfaz_PyPlot.png"/>
+  <img height=100 src="doc/interfaz_Swift.png"/>
 </p>
 
 ### Interfaz modo Gazebo: <a name="p5"/>
