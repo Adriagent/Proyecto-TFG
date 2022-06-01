@@ -28,7 +28,7 @@ This is the final project of 4º Robotic Engineering at University of Alicante f
 Click on the gif to see a video of the project in action:
 
 <p align="center">
-  <a href="https://youtu.be/j-LswYOt--s">
+  <a href="[https://youtu.be/j-LswYOt--s](https://www.youtube.com/watch?v=e_8cTOLwNLA)">
     <img src="doc/clip.gif" alt="animated"/>
   </a>
 </p>
