@@ -137,7 +137,7 @@ Este proyecto es un trabajo de final de grado hecho por: *Adrián Sanchis Reig*
 **Contacto**
  
   - <img height=20 src="https://cdn-icons-png.flaticon.com/512/174/174857.png"/> [sradrian](https://www.linkedin.com/in/sradrian/)
-  - :email: <a href="sradri00@gmail.com">sradri0@gmail.comt</a>
+  - :email: <a href="sradri00@gmail.com">sradri0@gmail.com</a>
   
   
   
