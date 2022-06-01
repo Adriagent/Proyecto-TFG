@@ -13,7 +13,7 @@
 
 ## Introducción: <a name="p1"/>
 
-Este es el proyecto de mi trabajo de fin de grado en la carrera de Ingeniería Robótica, en la Universidad de Alicante. El proyecto se ha desarrollado en `Ubuntu 20.4` y completamente en `Python 3`. La interfaz permite controlar una simulación en el entorno `Gazebo` de un robot UR y también controlar un robot real.
+Este es el proyecto de mi trabajo de fin de grado en la carrera de Ingeniería Robótica, en la Universidad de Alicante. El proyecto se ha desarrollado en `Ubuntu 20.04.4` y programando en Python 3. La interfaz permite controlar una simulación en el entorno Gazebo de un robot UR y también controlar un robot real.
 
 ## Instalación: <a name="p2"/>
 
@@ -48,9 +48,9 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 
 ## Ejemplos de uso: <a name="p3"/>
 
-## Video: <a name="p4"/>
+## Vídeo: <a name="p4"/>
 
-Click on the gif to see a video of the project in action:
+Haz click en el gif para ir al vídeo de demostración con un robot real.
 
 <p align="center">
   <a href="[https://youtu.be/j-LswYOt--s](https://www.youtube.com/watch?v=e_8cTOLwNLA)">
@@ -58,6 +58,6 @@ Click on the gif to see a video of the project in action:
   </a>
 </p>
 
-## Credits: <a name="p5"/>
+## Créditos: <a name="p5"/>
 
 Este proyecto es un trabajo de final de grado hecho por Adrián Sanchis Reig
