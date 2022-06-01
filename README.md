@@ -30,7 +30,7 @@ Click on the gif to see a video of the project in action:
 You can open a Mixture graph just by double clicking any texture field in the inspector with a Mixture assigned to it.
 ![](doc/clip.gif)
 
-<img src="doc/clip.gif" width="250" height="250"/>
+holi
 
 <p align="center">
   <a href="[https://youtu.be/j-LswYOt--s](https://www.youtube.com/watch?v=e_8cTOLwNLA)">
