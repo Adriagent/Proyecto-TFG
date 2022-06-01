@@ -107,19 +107,6 @@ Para ejecutar la interfaz en modo demo, hay que ejecutar el fichero `main.py` y 
     
 *Nota: la aplicación está diseñada para enviar y recibir mensajes mediante conexión TCP/IP con el robot real. El programa de ur_control.urp está pensado para controlar un UR3. En caso de que se quiera controlar otro robot, es necesario modificar el fichero  `simulation_demo.py`.*
 
-Para iniciar la interfaz, hay que ejecutar el fichero main.py, el cual permite seleccionar el
-modo en el que se quiere utilizar la interfaz. En el modo base solo se puede controlar la representación del robot integrada en la interfaz. El modo Gazebo, que necesita que previamente
-se haya lanzado el launch del controlador, permite controlar tanto la representación del robot como una simulación de este en Gazebo. Por último, el modo demo permite controlar un
-brazo robot en tiempo real iniciando un servidor.
-Si se quiere iniciar el modo Gazebo, previamente hay que lanzar el launch del controlador
-del robot que queramos controlar. El comando para hacerlo es el siguiente.
-1 $ roslaunch ur_gazebo UR<modelo>_bringup.launch
-Por otra parte, si se quiere controlar el robot real, la demo está preparada para comunicarse
-con un UR3. Dentro de la carpeta del proyecto se encuentra el fichero ur3_control.urp. Este
-es el programa que debe ejecutarse desde el robot real para que pueda comunicarse con la
-aplicación y moverse.
-
-
 ## Vídeo: <a name="p7"/>
 
 Demostración probando la interfaz con un robot UR3: [vídeo](https://www.youtube.com/watch?v=e_8cTOLwNLA)
