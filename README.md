@@ -54,6 +54,7 @@ Haz click en el gif para ir al vídeo de demostración con un robot real.
 
 <img src="doc/clip.gif" width="40" height="40" />
 
+hola mundooo
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=e_8cTOLwNLA">
