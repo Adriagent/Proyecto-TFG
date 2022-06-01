@@ -5,11 +5,14 @@
 
 ## Índice:
   
-  - [1. Introducción](#p1)
-  - [2. Instalación](#p2)  
-  - [3. Ejemplos de uso](#p3)
-  - [4. Video](#p4)
-  - [5. Creditos](#p5)  
+  - [1.   Introducción](#p1)
+  - [2.   Instalación](#p2)  
+  - [3.   Ejemplos de uso](#p3)
+  - [3.1  Interfaz modo Base](#p4)
+  - [3.2  Interfaz modo Gazebo](#p5)
+  - [3.3  Interfaz modo Demo](#p6)
+  - [4. Video](#p7)
+  - [5. Creditos](#p8)  
 
 ## Introducción: <a name="p1"/>
 
@@ -51,12 +54,22 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 Para iniciar el proyecto, es necesario haber realizado la calibración de las cámaras y del estéreo en primer lugar. Para ello hace falta utilizar un tablero de 10x7 cuadrados. En la siguiente página se puede configurar a gusto el tablero que queramos: [Generate Your Own Checkerboards](https://markhedleyjones.com/projects/calibration-checkerboard-collection).
 
 <p align="center">
-  <img height=400 scale="60" src="doc/board.jpg"/>
+  <img height=300 src="doc/board.jpg"/>
 </p>
 
-Figura A.1: Tablero 9x6 aristas / 10x7 cuadrados para calibrar las cámaras.
-La calibración de las cámaras se lleva a cabo ejecutando el código camera_calibration.py,
-tras realizarla, se puede calibrar el estéreo mediante el código stereo_calibration.py. Tras realizar estos dos pasos, ya es posible comenzar a utilizar el proyecto.
+La calibración de las cámaras se lleva a cabo ejecutando el código `camera_calibration.py`, tras realizarla, se puede calibrar el estéreo mediante el código `stereo_calibration.py`. Tras realizar estos dos pasos, ya es posible comenzar a utilizar el proyecto.
+
+### Interfaz modo Base: <a name="p4"/>
+
+<p align="center">
+  <img height=300 src="doc/Interfaz_PyPlot.png"/>
+  <img height=300 src="doc/interfaz_Swift.png"/>
+</p>
+
+### Interfaz modo Gazebo: <a name="p5"/>
+
+### Interfaz modo Demo: <a name="p6"/>
+
 Para iniciar la interfaz, hay que ejecutar el fichero main.py, el cual permite seleccionar el
 modo en el que se quiere utilizar la interfaz. En el modo base solo se puede controlar la representación del robot integrada en la interfaz. El modo Gazebo, que necesita que previamente
 se haya lanzado el launch del controlador, permite controlar tanto la representación del robot como una simulación de este en Gazebo. Por último, el modo demo permite controlar un
@@ -74,7 +87,7 @@ ejecutar la interfaz sin necesidad de disponer de ninguna cámara ni de realizar
 Para lanzar el proyecto en este modo, es necesario ejecutar el main con el argumento ”-vid”:
 python3 main.py -vid.
 
-## Vídeo: <a name="p4"/>
+## Vídeo: <a name="p7"/>
 
 Demostración probando la interfaz con un robot UR3: [vídeo](https://www.youtube.com/watch?v=e_8cTOLwNLA)
 
@@ -84,6 +97,6 @@ Demostración probando la interfaz con un robot UR3: [vídeo](https://www.youtub
   </a>
 </p>
 
-## Créditos: <a name="p5"/>
+## Créditos: <a name="p8"/>
 
-Este proyecto es un trabajo de final de grado hecho por Adrián Sanchis Reig
+Este proyecto es un trabajo de final de grado hecho por *Adrián Sanchis Reig*
