@@ -7,10 +7,9 @@
   
   - [1. Introducción](#p1)
   - [2. Instalación](#p2)  
-  - [2.1. Simulated Environment](#p2.1) 
-  - [2.2. Real Environment](#p2.2)  
-  - [3. Video](#p3)  
-  - [4. Creditos](#p4)  
+  - [3. Ejemplos de uso](#p3)
+  - [4. Video](#p4)
+  - [5. Creditos](#p5)  
 
 ## Introducción: <a name="p1"/>
 
@@ -23,24 +22,34 @@ Las dependencias necesarias para que funcione el proyecto se pueden instalar aut
 
     $ pip3 install -r requirements.txt
 
-Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gazebo, es necesario descargarse el [paquete de Universal Robots](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver).
- 
- Simulated environment has been coded with `Python3` on `ROS Noetic`. First of all, open Gazebo simulator, in this case, ROS defalut house map is used. On one terminal execute following commands:
+Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gazebo, es necesario instalar el [paquete](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver) de Universal Robots para ROS. La conexión entre Gazebo y la interfaz se ha hecho en `ROS Noetic`.
 
-    $ export TURTLEBOT3_MODEL=waffle
-    $ roslaunch turtlebot3_gazebo turtlebot3_house.launch
+    # source global ros
+    $ source /opt/ros/<your_ros_version>/setup.bash
+    
+    # create a catkin workspace
+    $ mkdir -p catkin_ws/src && cd catkin_ws
+    
+    # clone the driver
+    $ git clone https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git src/Universal_Robots_ROS_Driver
+    
+    # clone fork of the description. This is currently necessary, until the changes are merged upstream.
+    $ git clone -b calibration_devel https://github.com/fmauch/universal_robot.git src/fmauch_universal_robot
+    
+    # install dependencies
+    $ sudo apt update -qq
+    $ rosdep update
+    $ rosdep install --from-paths src --ignore-src -y
+    
+    # build the workspace
+    $ catkin_make
+    
+    # activate the workspace (ie: source it)
+    $ source devel/setup.bash
 
-  Open new terminal and execute navigation module (is is necessary to have previosly mapped the area):
-  
-    $ export TURTLEBOT3_MODEL=waffle
-    $ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/house.yaml
-  _Note: Both files (`.yaml` and `.pgm`) must be on `HOME` directory._
-   
-  This will open a rviz window where robot, map and localization point cloud can be seen. Use 2D POSE ESTIMATE to estimate the current position of the robot in the map.
-  
-  Execute code `main.py` and open `Andorid app`. TCP conexion uses `port:12343`
+## Ejemplos de uso: <a name="p3"/>
 
-## Video: <a name="p3"/>
+## Video: <a name="p4"/>
 
 Click on the gif to see a video of the project in action:
 
@@ -50,6 +59,6 @@ Click on the gif to see a video of the project in action:
   </a>
 </p>
 
-## Credits: <a name="p4"/>
+## Credits: <a name="p5"/>
 
 Este proyecto es un trabajo de final de grado hecho por Adrián Sanchis Reig
