@@ -52,7 +52,7 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 
 Haz click en el gif para ir al vídeo de demostración con un robot real.
 
-[doc/clip.gif](https://www.google.com)
+[<doc/clip.gif>](https://www.google.com)
 
 hola mundooo
 
