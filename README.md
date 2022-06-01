@@ -52,17 +52,11 @@ Por otra parte, si se quiere utilizar la interfaz para controlar un robot en Gaz
 
 Haz click en el gif para ir al vídeo de demostración con un robot real.
 
-[<img align="center" src="doc/clip.gif">](https://www.fzi.de).
-
-[<img height="60" src="doc/clip.gif">](https://www.universal-robots.com/) &nbsp; and &nbsp;
-
-hola mundooo
-
-<p align="center">
+[<p align="center">
   <a href="https://www.youtube.com/watch?v=e_8cTOLwNLA">
-    <img height="60" src="doc/clip.gif" alt="animated"/>
+    <img scale="6000" src="doc/clip.gif" alt="animated"/>
   </a>
-</p>
+</p>](https://www.youtube.com/watch?v=e_8cTOLwNLA)
 
 ## Créditos: <a name="p5"/>
 
