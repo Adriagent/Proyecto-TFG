@@ -132,4 +132,12 @@ Demostración probando la interfaz con un robot UR3: [vídeo](https://www.youtub
 
 ## Créditos: <a name="p8"/>
 
-Este proyecto es un trabajo de final de grado hecho por *Adrián Sanchis Reig*
+Este proyecto es un trabajo de final de grado hecho por: *Adrián Sanchis Reig*
+
+**Contacto**
+ 
+  - <img height=20 src="https://cdn-icons-png.flaticon.com/512/174/174857.png"/> https://www.linkedin.com/in/sradrian/
+  - :email:
+  
+  
+  
