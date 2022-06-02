@@ -1,4 +1,3 @@
-import mediapipe as mp
 import cv2
 import numpy as np
 import sys
@@ -16,11 +15,14 @@ def mediapipe_detection(P1, P2, devices):
     except ConnectionRefusedError:
         exit("[ERROR]: No se ha podido conectar con el servidor.")
 
+
+
     last = time()
     previous_frame_time = time()
     ready = False
     n = 0
 
+    import mediapipe as mp
 
     mp_pose = mp.solutions.mediapipe.python.solutions.pose
     pose0 = mp_pose.Pose()
@@ -155,10 +157,15 @@ if __name__ == "__main__":
 
         mediapipe_detection(P1, P2, devices[1:])
 
-    else:
+    elif len(sys.argv) == 2 and sys.argv[1] == "-vid":
+
         devices = [0, 2, 4]
         P1, P2 = setup(devices[1:]) # Obtenemos las matrices de proyeccion.
 
         devices = [0, "utils/cam1.avi", "utils/cam2.avi"]
         mediapipe_detection(P1, P2, devices[1:])
+
+    else:
+        print("[!] Syntax: python3 pose_stereo.py <option>")
+        print("\n\t-vid : Use example videos instead of cameras.")
 
