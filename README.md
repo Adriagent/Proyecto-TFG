@@ -1,6 +1,6 @@
 # Interfaz hombre-máquina mediante estimación de pose
 <p align="center">
-  <img src="doc/Pipeline.jpg" alt="animated"/>
+  <img src="doc/Pipeline General.jpg" alt="animated"/>
 </p>
 
 ## Índice:
